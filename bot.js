@@ -19,6 +19,6 @@ var stream = T.stream('statuses/filter', { locations: sanFrancisco })
  
 stream.on('tweet', function (tweet) {
   if(tweet.user.location!=null)
-  console.log(tweet.user.location)
+  console.log(tweet.place.fullname)
 })
 
