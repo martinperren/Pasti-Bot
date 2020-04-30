@@ -1,11 +1,13 @@
-  
 {
-  "name": "Bot.js",
-  "version": "1.0.0",
-  "description": "Bot test.",
+  "name": "twitterbot",
+  "description": "testing",
+  "version": "0.0.0",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js",
-    "test": "node bot.js"
+    "start": "node bot.js"
+  },
+  "dependencies": {
+     "twit": "2.2.11"
+
   }
 }
