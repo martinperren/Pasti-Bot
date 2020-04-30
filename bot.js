@@ -18,6 +18,6 @@ var sanFrancisco = [ '-61.240682',	'-31.823592'	,'-60.853811'	,'-31.495817']
 var stream = T.stream('statuses/filter', { locations: sanFrancisco })
  
 stream.on('tweet', function (tweet) {
-  console.log(tweet)gdff
+  console.log(tweet.location)
 })
 
