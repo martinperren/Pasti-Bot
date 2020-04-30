@@ -13,7 +13,7 @@ const T = new Twit({
 });
 
 
-var sanFrancisco = [ '-61.2406815481',' -60.8538110362', '-31.4958172435', '-31.8235921027' ]
+var sanFrancisco = [ '-61.240682',	'-31.823592'	,'-60.853811'	,'-31.495817']
  
 var stream = T.stream('statuses/filter', { locations: sanFrancisco })
  
