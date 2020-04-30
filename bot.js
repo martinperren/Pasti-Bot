@@ -12,18 +12,12 @@ const T = new Twit({
 	timeout_ms: 60*20000,
 });
 
-// Retwittear Tweets que contenga el Hashtag #css
-const stream = T.stream('statuses/filter', { track: '@Protomolecula' });
+
+var sanFrancisco = [ '-61.2406815481',' -60.8538110362', '-31.4958172435', '-31.8235921027' ]
  
-// Registro errores en las solicitudes
-function responseCallback(err, data, response) {
-  console.log(err);
-}
+var stream = T.stream('statuses/filter', { locations: sanFrancisco })
  
-// Tareas
-stream.on('tweet', tweet => {
-  // Retweet
-  T.post('statuses/retweet/:id', { id: tweet.id_str }, responseCallback);
-  // Me Gusta
-  T.post('favorites/create', { id: tweet.id_str }, responseCallback);
-});
+stream.on('tweet', function (tweet) {
+  console.log(tweet)
+})
+
