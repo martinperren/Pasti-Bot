@@ -13,12 +13,12 @@ const T = new Twit({
 });
 
 
-var sanFrancisco = [ '-61.240682',	'-31.823592'	,'-60.853811'	,'-31.495817']
+var sanFrancisco = ['-61.414948','-31.823898','-60.898590','-31.511825']
  
 var stream = T.stream('statuses/filter', { locations: sanFrancisco })
  
 stream.on('tweet', function (tweet) {
   if(tweet.user.location!=null)
-  console.log("Location: "+tweet.user.location+"Fullname: "+tweet.place.fullname)
+  console.log("Nombre: "+tweet.user.screen_name+ "\nLocation: "+tweet.user.location+"\nFullname: "+tweet.place.fullname+"\n Tweet: "+tweet.text);
 })
 
