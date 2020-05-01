@@ -18,7 +18,6 @@ var sanFrancisco = ['-61.414948','-31.823898','-60.898590','-31.511825']
 var stream = T.stream('statuses/filter', { locations: sanFrancisco })
  
 stream.on('tweet', function (tweet) {
-  if(tweet.user.location!=null)
   	 console.log("---------------");
   console.log("Nombre: "+tweet.user.screen_name+ "\nLocation: "+tweet.user.location+"\nFullname: "+tweet.place.fullname+"\nTweet: "+tweet.text);
 })
