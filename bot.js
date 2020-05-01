@@ -19,6 +19,6 @@ var stream = T.stream('statuses/filter', { locations: sanFrancisco })
  
 stream.on('tweet', function (tweet) {
   	 console.log("---------------");
-  console.log("Nombre: "+tweet.user.screen_name+ "\nLocation: "+tweet.user.location+"\nFullname: "+tweet.place.fullname+"\nTweet: "+tweet.text);
+  console.log("Nombre: "+tweet.user.screen_name+ "\nLocation: "+tweet.user.location+"\nFullname: "+tweet.place.full_name+"\nTweet: "+tweet.text);
 })
 
