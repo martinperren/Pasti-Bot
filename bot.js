@@ -16,8 +16,7 @@ const T = new Twit({
 });
 
 const rule = new schedule.RecurrenceRule();
-rule.hour = 5;
-rule.minutes = 4;
+rule.hour = 23;
 
 rule.tz = "America/Argentina/Buenos_Aires";
 
@@ -29,7 +28,7 @@ const job = schedule.scheduleJob(rule, function () {
 	var localidad = jsonData.localidades[Math.floor(Math.random() * 3526)].municipio.nombre;
   T.post(
     "statuses/update",
-    { status: "TOMA LA PASTILLA 💊"+ localidad.toUpperCase() },
+    { status: "💊 LA PASTILLA 💊 "+ localidad.toUpperCase() },
     function (err, data, response) {
       console.log("Twitteado");
     }
