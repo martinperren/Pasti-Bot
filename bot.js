@@ -3,12 +3,10 @@ var Twit = require("twit");
 var fs = require("fs");
 const schedule = require("node-schedule");
 
-function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
-}
+
 
 console.log("Bot iniciado");
-// Init Twit lib
+//3526
 
 const T = new Twit({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -29,8 +27,8 @@ var localidad = jsonData.localidades[0].municipio.nombre;
 
 console.log(localidad);
 const job = schedule.scheduleJob(rule, function () {
-  var numero = getRandomArbitrary(0, 3300);
-  console.log(numero);
+
+  console.log(Math.floor(Math.random() * (3525 - 0)) + 0);
 
   T.post(
     "statuses/update",
