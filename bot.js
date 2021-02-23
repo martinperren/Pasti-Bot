@@ -16,8 +16,9 @@ const T = new Twit({
 
 const rule = new schedule.RecurrenceRule();
 rule.hour = 3;
-rule.minute = 23;
+rule.minute = 33;
 rule.tz = 'America/Argentina/Buenos_Aires';
+
 
 const job = schedule.scheduleJob(rule, function(){
 	T.post('statuses/update', { status: 'Toma la pastilla' }, function(err, data, response) {
