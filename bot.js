@@ -1,6 +1,7 @@
 // Create object reference to libs
 var Twit = require('twit');
 var fs = require('fs');
+const schedule = require('node-schedule');
 
 
 // Init Twit lib
@@ -13,12 +14,16 @@ const T = new Twit({
 });
 
 
-var sanFrancisco = ['-61.240682',	'-31.823592',	'-60.853811',	'-31.495817'];
- 
-var stream = T.stream('statuses/filter', { locations: sanFrancisco })
- 
-stream.on('tweet', function (tweet) {
-  	 console.log("---------------");
-  console.log("Nombre: "+tweet.user.screen_name+ "\nLocation: "+tweet.user.location+"\nFullname: "+tweet.place.full_name+"\nTweet: "+tweet.text);
-})
+const rule = new schedule.RecurrenceRule();
+rule.hour = 3;
+rule.minute = 18;
+rule.tz = 'America/Argentina/Buenos_Aires';
+
+const job = schedule.scheduleJob(rule, function(){
+	T.post('statuses/update', { status: 'Toma la pastilla' }, function(err, data, response) {
+		console.log(data)
+	  })
+});
+
+
 
