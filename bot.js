@@ -30,7 +30,8 @@ rule.tz = 'America/Argentina/Buenos_Aires';
 
 let jsonData = require('./localidades.json');
 
-var localidad = jsonData.localidades[0];
+var localidad = jsonData.localidades[0].municipio.nombre;
+
 console.log(localidad);
 const job = schedule.scheduleJob(rule, function(){
 
@@ -40,7 +41,7 @@ const job = schedule.scheduleJob(rule, function(){
 
 
 
-	T.post('statuses/update', { status: "TOMA LA PASTILLA" + ybp.current() +"%"}, function(err, data, response) {
+	T.post('statuses/update', { status: "TOMA LA PASTILLA"}, function(err, data, response) {
 
 
 		
