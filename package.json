@@ -8,6 +8,6 @@
   },
   "dependencies": {
      "twit": "2.2.11",
-     "node-schedule": "2.0.0",
+     "node-schedule": "2.0.0"
   }
 }
