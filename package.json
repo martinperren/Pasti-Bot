@@ -8,6 +8,7 @@
   },
   "dependencies": {
      "twit": "2.2.11",
-     "node-schedule": "2.0.0"
+     "node-schedule": "2.0.0",
+     "human-names": "1.0.11"
   }
 }
