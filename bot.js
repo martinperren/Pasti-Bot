@@ -16,7 +16,7 @@ const T = new Twit({
 
 const rule = new schedule.RecurrenceRule();
 rule.hour = 3;
-rule.minute = 18;
+rule.minute = 23;
 rule.tz = 'America/Argentina/Buenos_Aires';
 
 const job = schedule.scheduleJob(rule, function(){
