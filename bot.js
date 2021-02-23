@@ -30,7 +30,7 @@ rule.tz = 'America/Argentina/Buenos_Aires';
 
 let jsonData = require('./localidades.json');
 
-var localidad = jsonData;
+var localidad = jsonData.localidades-censales.[getRandomArbitrary(1,3400)].municipio.nombre;
 console.log(localidad);
 const job = schedule.scheduleJob(rule, function(){
 
