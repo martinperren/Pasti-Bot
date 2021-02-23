@@ -6,7 +6,7 @@ const schedule = require("node-schedule");
 
 
 console.log("Bot iniciado");
-//3526
+
 
 const T = new Twit({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -17,8 +17,7 @@ const T = new Twit({
 
 const rule = new schedule.RecurrenceRule();
 const ybp = require("year-progress-bar");
-rule.hour = 4;
-rule.minutes = 56;
+rule.hour = 23;
 
 rule.tz = "America/Argentina/Buenos_Aires";
 
@@ -30,7 +29,7 @@ const job = schedule.scheduleJob(rule, function () {
 	var localidad = jsonData.localidades[Math.floor(Math.random() * 3526)].municipio.nombre;
   T.post(
     "statuses/update",
-    { status: localidad.toUpperCase() + "TOMA LA PASTILLA " },
+    { status: "TOMA LA PASTILLA "+ localidad.toUpperCase() },
     function (err, data, response) {
       console.log(data);
     }
