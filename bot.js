@@ -16,7 +16,6 @@ const T = new Twit({
 });
 
 const rule = new schedule.RecurrenceRule();
-const ybp = require("year-progress-bar");
 rule.hour = 23;
 
 rule.tz = "America/Argentina/Buenos_Aires";
@@ -31,7 +30,7 @@ const job = schedule.scheduleJob(rule, function () {
     "statuses/update",
     { status: "TOMA LA PASTILLA "+ localidad.toUpperCase() },
     function (err, data, response) {
-      console.log(data);
+      console.log("Twitteado");
     }
   );
 });
