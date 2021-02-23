@@ -13,14 +13,15 @@ const T = new Twit({
 	timeout_ms: 60*20000,
 });
 
-
+console.log("ASD");
 const rule = new schedule.RecurrenceRule();
 rule.hour = 3;
-rule.minute = 33;
+rule.minute = 35;
 rule.tz = 'America/Argentina/Buenos_Aires';
 
 
 const job = schedule.scheduleJob(rule, function(){
+	console.log("ASD");
 	T.post('statuses/update', { status: 'Toma la pastilla' }, function(err, data, response) {
 		console.log(data)
 	  })
