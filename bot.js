@@ -3,7 +3,7 @@ var Twit = require('twit');
 var fs = require('fs');
 const schedule = require('node-schedule');
 
-console.log("ASD");
+console.log("Bot iniciado");
 // Init Twit lib
 
 const T = new Twit({
@@ -16,13 +16,17 @@ const T = new Twit({
 
 const rule = new schedule.RecurrenceRule();
 rule.hour = 3;
-rule.minute = 38;
+rule.minute = 47;
 rule.tz = 'America/Argentina/Buenos_Aires';
 
 
 const job = schedule.scheduleJob(rule, function(){
-	console.log("ASD");
-	T.post('statuses/update', { status: 'Toma la pastilla' }, function(err, data, response) {
+
+	var humanNames = require('human-names');
+	var nombre = humanNames.femaleRandom();
+	
+
+	T.post('statuses/update', { status: "Toma la pastilla " +nombre }, function(err, data, response) {
 		console.log(data)
 	  })
 });
