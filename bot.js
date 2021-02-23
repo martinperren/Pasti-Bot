@@ -15,18 +15,16 @@ const T = new Twit({
 
 
 const rule = new schedule.RecurrenceRule();
-rule.hour = 3;
-rule.minute = 48;
+const ybp = require('year-progress-bar');
+rule.hour = 4;
+rule.minute = 2;
 rule.tz = 'America/Argentina/Buenos_Aires';
 
 
 const job = schedule.scheduleJob(rule, function(){
 
-	var humanNames = require('human-names');
-	var nombre = humanNames.femaleRandom();
-	
 
-	T.post('statuses/update', { status: "Toma la pastilla " +nombre }, function(err, data, response) {
+	T.post('statuses/update', { status: "Toma la pastilla " + ybp.fancy()}, function(err, data, response) {
 		console.log(data)
 	  })
 });
