@@ -16,15 +16,29 @@ const T = new Twit({
 
 const rule = new schedule.RecurrenceRule();
 const ybp = require('year-progress-bar');
-rule.hour = 4;
-rule.minute = 2;
+rule.hour = 23;
+
+
 rule.tz = 'America/Argentina/Buenos_Aires';
 
+let jsonData = require('./localidades.json');
 
+var localidad = jsonData[getRandomArbitrary].municipio.nombre;
+console.log(localidad);
 const job = schedule.scheduleJob(rule, function(){
 
 
-	T.post('statuses/update', { status: "Toma la pastilla " + ybp.fancy()}, function(err, data, response) {
+	function getRandomArbitrary(min, max) {
+		return Math.random() * (max - min) + min;
+	  }
+
+
+
+
+	T.post('statuses/update', { status: "TOMA LA PASTILLA" + ybp.current() +"%"}, function(err, data, response) {
+
+
+		
 		console.log(data)
 	  })
 });
