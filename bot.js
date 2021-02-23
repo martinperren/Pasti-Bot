@@ -3,8 +3,15 @@ var Twit = require('twit');
 var fs = require('fs');
 const schedule = require('node-schedule');
 
+
+function getRandomArbitrary(min, max) {
+	return Math.random() * (max - min) + min;
+  }
+
 console.log("Bot iniciado");
 // Init Twit lib
+
+
 
 const T = new Twit({
 	consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -23,14 +30,12 @@ rule.tz = 'America/Argentina/Buenos_Aires';
 
 let jsonData = require('./localidades.json');
 
-var localidad = jsonData[getRandomArbitrary].municipio.nombre;
+var localidad = jsonData[getRandomArbitrary(1,3400)].municipio.nombre;
 console.log(localidad);
 const job = schedule.scheduleJob(rule, function(){
 
 
-	function getRandomArbitrary(min, max) {
-		return Math.random() * (max - min) + min;
-	  }
+	
 
 
 
