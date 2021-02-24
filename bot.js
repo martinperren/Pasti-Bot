@@ -17,6 +17,7 @@ const T = new Twit({
 
 const rule = new schedule.RecurrenceRule();
 rule.hour = 23;
+rule.minutes = 0;
 
 rule.tz = "America/Argentina/Buenos_Aires";
 
