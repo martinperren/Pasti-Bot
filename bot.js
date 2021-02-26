@@ -32,7 +32,7 @@ let jsonData = require("./localidades.json");
  console.log('Runing a job at 01:00 at America/Sao_Paulo timezone');
  }, {
    scheduled: true,
-   timezone: America/Argentina/Buenos_Aires";
+   timezone: "America/Argentina/Buenos_Aires";
  });
 
 
