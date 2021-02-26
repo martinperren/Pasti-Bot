@@ -1,8 +1,9 @@
-// Create object reference to libs
+
 var Twit = require("twit");
 var fs = require("fs");
 var cron = require('node-cron');
- 
+//const dotenv = require('dotenv');
+//dotenv.config({ path: './config.env' });
 
 
 console.log("Bot iniciado");
@@ -20,16 +21,29 @@ let jsonData = require("./localidades.json");
 
  cron.schedule('0 23 * * *', () => {
 
-	var localidad = jsonData.localidades[Math.floor(Math.random() * 3526)].municipio.nombre;
+	var localidad = jsonData.localidades[Math.floor(Math.random() * 3526)];
+  var nombreLocalidad = localidad.municipio.nombre;
+  var localidadProvincia = localidad.provincia.nombre;
+  var departamento= localidad.departamento.nombre;
+
+
+if(nombreLocalidad=="null"){
+  nombreLocalidad = departamento;
+}
+
+
+  console.log("LA PASTILLA 💊 "+ nombreLocalidad + " ("+localidadProvincia+")");
+  
+  
   T.post(
     "statuses/update",
-    { status: "💊 LA PASTIIII "+ localidad.toUpperCase() },
+    { status: "LA PASTILLA 💊 "+ nombreLocalidad + " ("+localidadProvincia+")"},
     function (err, data, response) {
       console.log("Twitteado");
     }
   );
 
- console.log('Runing a job at 01:00 at America/Sao_Paulo timezone');
+
  }, {
    scheduled: true,
    timezone: "America/Argentina/Buenos_Aires"
