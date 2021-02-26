@@ -29,7 +29,7 @@ const job = schedule.scheduleJob(rule, function () {
 	var localidad = jsonData.localidades[Math.floor(Math.random() * 3526)].municipio.nombre;
   T.post(
     "statuses/update",
-    { status: "💊 LA PASTILLA 💊 "+ localidad.toUpperCase() },
+    { status: "💊 LA PASTIIII "+ localidad.toUpperCase() },
     function (err, data, response) {
       console.log("Twitteado");
     }
