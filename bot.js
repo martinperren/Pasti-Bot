@@ -22,14 +22,16 @@ let jsonData = require("./localidades.json");
  cron.schedule('0 23 * * *', () => {
 
 	var localidad = jsonData.localidades[Math.floor(Math.random() * 3526)];
-  var nombreLocalidad = localidad.municipio.nombre;
+ while(localidad=="null"){
+
+localidad = jsonData.localidades[Math.floor(Math.random() * 3526)];
+} 
+
+var nombreLocalidad = localidad.municipio.nombre;
   var localidadProvincia = localidad.provincia.nombre;
-  var departamento= localidad.departamento.nombre;
+ 
 
 
-if(nombreLocalidad=="null"){
-  nombreLocalidad = departamento;
-}
 
 
   console.log("LA PASTILLA 💊 "+ nombreLocalidad + " ("+localidadProvincia+")");
