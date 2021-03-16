@@ -22,7 +22,7 @@ let jsonData = require("./localidades.json");
  cron.schedule('0 23 * * *', () => {
 
 	var localidad = jsonData.localidades[Math.floor(Math.random() * 3526)];
- while(localidad=="null"){
+  while (!localidad.municipio.nombre) {
 
 localidad = jsonData.localidades[Math.floor(Math.random() * 3526)];
 } 
